@@ -1,0 +1,460 @@
+[20:50, 07/04/2025] Jerry: <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社交媒体发布中心</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        
+        .qr-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-section {
+            flex: 2;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .qr-container {
+            width: 200px;
+            height: 200px;
+            margin: 20px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #qrcode {
+            width: 180px;
+            height: 180px;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px 20px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+        }
+        
+        .douyin { border-color: #FE2C55; }
+        .xiaohongshu { border-color: #FF2442; }
+        .facebook { border-color: #1877F2; }
+        .instagram { border-color: #E4405F; }
+        
+        .download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #4b6cb7;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #3a5aa0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .qr-section, .social-section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>社交媒体发布中心</h1>
+            <p class="description">扫描二维码或直接点击下方按钮快速发布内容</p>
+        </header>
+        
+        <div class="content">
+            <div class="qr-section">
+                <h2>分享二维码</h2>
+                <div class="qr-container">
+                    <canvas id="qrcode"></canvas>
+                </div>
+                <a href="#" id="downloadQR" class="download-btn">下载二维码</a>
+            </div>
+            
+            <div class="social-section">
+                <h2>选择发布平台</h2>
+                
+                <!-- 抖音发布 -->
+                <a href="snssdk1233://capture" onclick="return openApp('snssdk1233://capture', 'https://www.douyin.com/')" class="social-btn douyin">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+
+[20:52, 07/04/2025] Jerry: <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社交媒体发布中心</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        
+        .qr-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-section {
+            flex: 2;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .qr-container {
+            width: 200px;
+            height: 200px;
+            margin: 20px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #qrcode {
+            width: 180px;
+            height: 180px;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px 20px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+        }
+        
+        .douyin { border-color: #FE2C55; }
+        .xiaohongshu { border-color: #FF2442; }
+        .facebook { border-color: #1877F2; }
+        .instagram { border-color: #E4405F; }
+        
+        .download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #4b6cb7;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #3a5aa0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .qr-section, .social-section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>社交媒体发布中心</h1>
+            <p class="description">扫描二维码或直接点击下方按钮快速发布内容</p>
+        </header>
+        
+        <div class="content">
+            <div class="qr-section">
+                <h2>分享二维码</h2>
+                <div class="qr-container">
+                    <canvas id="qrcode"></canvas>
+                </div>
+                <a href="#" id="downloadQR" class="download-btn">下载二维码</a>
+            </div>
+            
+            <div class="social-section">
+                <h2>选择发布平台</h2>
+                
+                <!-- 抖音发布 -->
+                <a href="snssdk1233://capture" onclick="return openApp('snssdk1233://capture', 'https://www.douyin.com/')" class="social-btn douyin">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0ZFMkM1NSIgZD0iTTE2LjMzIDRIMTguMXYxNS41N0gxNi4zM1Y0ek01Ljc0IDRoMy41M3YxNS41N0g1Ljc0VjR6Ii8+PC9zdmc+" class="social-icon">
+                    <span>抖音发布</span>
+                </a>
+                
+                <!-- 小红书发布 -->
+                <a href="xiaohongshu://publish" onclick="return openApp('xiaohongshu://publish', 'https://www.xiaohongshu.com/')" class="social-btn xiaohongshu">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0ZGMjQ0MiIgZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMEMyMiA2LjQ4IDE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6Ii8+PC9zdmc+" class="social-icon">
+                    <span>小红书发布</span>
+                </a>
+                
+                <!-- Facebook发布 -->
+                <a href="fb://publish" onclick="return openApp('fb://publish', 'https://www.facebook.com/')" class="social-btn facebook">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzE4NzdGMiIgZD0iTTIyIDEyYzAtNS41Mi00LjQ4LTEwLTEwLTEwUzIgNi40OCAyIDEyYzAgNC44NCAzLjQ0IDguODcgOC4xIDkuOFYxNUg4di0zaDIuMVYxMi4xYzAtMi4xIDEuNjctMy45IDMuOC0zLjloMS44djIuN2gtMS4xYy0uNTUgMC0xIC40NS0xIDFWMjFoLTMuOXYtNi4yaC0zVjE1aDN6Ii8+PC9zdmc+" class="social-icon">
+                    <span>Facebook发布</span>
+                </a>
+                
+                <!-- Instagram发布 -->
+                <a href="instagram://camera" onclick="return openApp('instagram://camera', 'https://www.instagram.com/')" class="social-btn instagram">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0U0NDA1RiIgZD0iTTEyIDJjMi43NiAwIDMuMDkuMSA0LjE4LjE0IDIuNjMuMjQgMy44NCAxLjQ2IDQuMDggNC4wOC4wMyAxLjA5LjE0IDEuNDIuMTQgNC4xOCAwIDIuNzYtLjExIDMuMDktLjE0IDQuMTgtLjI0IDIuNjYtMS40NiAzLjg0LTQuMDggNC4wOC0xLjA5LjAzLTEuNDIuMTQtNC4xOC4xNC0yLjc2IDAtMy4wOS0uMTEtNC4xOC0uMTQtMi42Ni0uMjQtMy44NC0xLjQ2LTQuMDgtNC4wOC0uMDMtMS4wOS0uMTQtMS40Mi0uMTQtNC4xOCAwLTIuNzYuMTEtMy4wOS4xNC00LjE4LjI0LTIuNjYgMS40Ni0zLjg0IDQuMDgtNC4wOCAxLjA5LS4wMyAxLjQyLS4xNCA0LjE4LS4xNHptMCAyYy0yLjc0IDAtMy4wOS4xLTQuMTguMTQtMi4wMi4xOS0yLjc1LjkxLTIuOTQgMi45NC0uMDQgMS4wOS0uMTQgMS40NC0uMTQgNC4xOCAwIDIuNzQuMSAzLjA5LjE0IDQuMTguMTkgMi4wMi45MSAyLjc1IDIuOTQgMi45NCAxLjA5LjA0IDEuNDQuMTQgNC4xOC4xNCAyLjc0IDAgMy4wOS0uMSA0LjE4LS4xNCAyLjAyLS4xOSAyLjc1LS45MSAyLjk0LTIuOTQuMDQtMS4wOS4xNC0xLjQ0LjE0LTQuMTggMC0yLjc0LS4xLTMuMDktLjE0LTQuMTgtLjE5LTIuMDItLjkxLTIuNzUtMi45NC0yLjk0LTEuMDktLjA0LTEuNDQtLjE0LTQuMTgtLjE0ek0xMiA3LjVhNC41IDQuNSAwIDExMCA5IDQuNSA0LjUgMCAwMTAtOXptMCAyYTcuNSA3LjUgMCAxMDAgMTUgNy41IDcuNSAwIDAwMC0xNXptNS41LTEwLjVhMS43NSAxLjc1IDAgMTEwIDMuNSAxLjc1IDEuNzUgMCAwMTAtMy41eiIvPjwvc3ZnPg==" class="social-icon">
+                    <span>Instagram发布</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 社交媒体发布中心 | 使用二维码分享此页面</p>
+    </footer>
+
+    <script>
+        // 生成当前页面的二维码
+        document.addEventListener('DOMContentLoaded', function() {
+            const typeNumber = 4;
+            const errorCorrectionLevel = 'L';
+            const qr = qrcode(typeNumber, errorCorrectionLevel);
+            qr.addData(window.location.href);
+            qr.make();
+            
+            const qrCanvas = document.getElementById('qrcode');
+            qrCanvas.innerHTML = qr.createImgTag(4);
+            
+            // 设置下载二维码功能
+            document.getElementById('downloadQR').addEventListener('click', function(e) {
+                e.preventDefault();
+                const canvas = document.createElement('canvas');
+                const size = 400;
+                canvas.width = size;
+                canvas.height = size;
+                
+                const qrDownload = qrcode(typeNumber, errorCorrectionLevel);
+                qrDownload.addData(window.location.href);
+                qrDownload.make();
+                
+                const ctx = canvas.getContext('2d');
+                const cells = qrDownload.modules;
+                const tileSize = size / cells.length;
+                
+                // 绘制二维码
+                cells.forEach((row, y) => {
+                    row.forEach((cell, x) => {
+                        ctx.fillStyle = cell ? '#000000' : '#ffffff';
+                        ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
+                    });
+                });
+                
+                // 添加中心logo
+                const logoSize = size / 4;
+                const logoX = (size - logoSize) / 2;
+                const logoY = (size - logoSize) / 2;
+                ctx.fillStyle = '#4b6cb7';
+                ctx.fillRect(logoX, logoY, logoSize, logoSize);
+                
+                // 转换为下载
+                const link = document.createElement('a');
+                link.download = 'social-media-qrcode.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        });
+        
+        // 智能跳转函数：尝试打开APP，失败则跳转网页
+        function openApp(appUrl, webUrl) {
+            // 记录点击时间
+            const clickTime = new Date().getTime();
+            
+            // 尝试打开APP
+            window.location = appUrl;
+            
+            // 设置超时检测（1秒后检查）
+            setTimeout(function() {
+                // 如果现在时间与点击时间差小于1500ms，说明APP没打开
+                if (new Date().getTime() - clickTime < 1500) {
+                    window.location = webUrl;  // 跳转网页版
+                }
+            }, 1000);
+            
+            return false; // 阻止默认链接行为
+        }
+    </script>
+</body>
+</html>
