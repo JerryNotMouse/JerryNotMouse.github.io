@@ -1,0 +1,147 @@
+[21:04, 07/04/2025] Jerry: <!DOCTYPE html>
+<html>
+<head>
+    <title>社交媒体发布平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .social-btn { 
+            display: block; 
+            margin: 15px auto; 
+            padding: 15px; 
+            width: 100%; 
+  …
+[21:05, 07/04/2025] Jerry: <!DOCTYPE html>
+<html>
+<head>
+    <title>社交媒体发布平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .social-btn { 
+            display: block; 
+            margin: 15px auto; 
+            padding: 15px; 
+            width: 100%; 
+            max-width: 300px; 
+            background: #fff; 
+            border: 2px solid; 
+            border-radius: 10px; 
+            font-size: 18px; 
+            font-weight: bold;
+            text-decoration: none; 
+            color: #000; 
+            transition: all 0.3s;
+            position: relative;
+            padding-left: 60px;
+            text-align: left;
+        }
+        .social-btn:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        .social-btn::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .douyin { border-color: #FE2C55; color: #FE2C55; }
+        .douyin::before { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0ZFMkM1NSIgZD0iTTE2.4zMyA0HDEuNzd2MTUuNTdIMTYuMzNWNHpNNS43NCA0aDMuNTN2MTUuNTdINS43NFY0eiIvPjwvc3ZnPg=='); }
+        
+        .xiaohongshu { border-color: #FF2442; color: #FF2442; }
+        .xiaohongshu::before { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0ZGMjQ0MiIgZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMEMyMiA2LjQ4IDE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6Ii8+PC9zdmc+'); }
+        
+        .facebook { border-color: #1877F2; color: #1877F2; }
+        .facebook::before { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzE4NzdGMiIgZD0iTTIyIDEyYzAtNS41Mi00LjQ4LTEwLTEwLTEwUzIgNi40OCAyIDEyYzAgNC44NCAzLjQ0IDguODcgOC4xIDkuOFYxNUg4di0zaDIuMVYxMi4xYzAtMi4xIDEuNjctMy45IDMuOC0zLjloMS44djIuN2gtMS4xYy0uNTUgMC0xIC40NS0xIDFWMjFoLTMuOXYtNi4yaC0zVjE1aDN6Ii8+PC9zdmc+'); }
+        
+        .instagram { border-color: #E4405F; color: #E4405F; }
+        .instagram::before { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0U0NDA1RiIgZD0iTTEyIDJjMi43NiAwIDMuMDkuMSA0LjE4LjE0IDIuNjMuMjQgMy44NCAxLjQ2IDQuMDggNC4wOC4wMyAxLjA5LjE0IDEuNDIuMTQgNC4xOCAwIDIuNzYtLjExIDMuMDktLjE0IDQuMTgtLjI0IDIuNjYtMS40NiAzLjg0LTQuMDggNC4wOC0xLjA5LjAzLTEuNDIuMTQtNC4xOC4xNC0yLjc2IDAtMy4wOS0uMTEtNC4xOC0uMTQtMi42Ni0uMjQtMy44NC0xLjQ2LTQuMDgtNC4wOC0uMDMtMS4wOS0uMTQtMS40Mi0uMTQtNC4xOCAwLTIuNzYuMTEtMy4wOS4xNC00LjE4LjI0LTIuNjYgMS40Ni0zLjg0IDQuMDgtNC4wOCAxLjA5LS4wMyAxLjQyLS4xNCA0LjE4LS4xNHptMCAyYy0yLjc0IDAtMy4wOS4xLTQuMTguMTQtMi4wMi4xOS0yLjc1LjkxLTIuOTQgMi45NC0uMDQgMS4wOS0uMTQgMS40NC0uMTQgNC4xOCAwIDIuNzQuMSAzLjA5LjE0IDQuMTguMTkgMi4wMi45MSAyLjc1IDIuOTQgMi45NCAxLjA5LjA0IDEuNDQuMTQgNC4xOC4xNCAyLjc0IDAgMy4wOS0uMSA0LjE4LS4xNCAyLjAyLS4xOSAyLjc1LS45MSAyLjk0LTIuOTQuMDQtMS4wOS4xNC0xLjQ0LjE0LTQuMTggMC0yLjc0LS4xLTMuMDktLjE0LTQuMTgtLjE5LTIuMDItLjkxLTIuNzUtMi45NC0yLjk0LTEuMDktLjA0LTEuNDQtLjE0LTQuMTgtLjE0ek0xMiA3LjVhNC41IDQuNSAwIDExMCA5IDQuNSA0LjUgMCAwMTAtOXptMCAyYTcuNSA3LjUgMCAxMDAgMTUgNy41IDcuNSAwIDAwMC0xNXptNS41LTEwLjVhMS43NSAxLjc1IDAgMTEwIDMuNSAxLjc1IDEuNzUgMCAwMTAtMy41eiIvPjwvc3ZnPg=='); }
+        
+        .instructions {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>选择发布平台</h1>
+        
+        <!-- 抖音发布 -->
+        <a href="snssdk1233://capture" onclick="return openApp('snssdk1233://capture', 'https://www.douyin.com/')" class="social-btn douyin">抖音发布</a>
+        
+        <!-- 小红书发布 -->
+        <a href="xiaohongshu://publish" onclick="return openApp('xiaohongshu://publish', 'https://www.xiaohongshu.com/')" class="social-btn xiaohongshu">小红书发布</a>
+        
+        <!-- Facebook发布 -->
+        <a href="fb://publish" onclick="return openApp('fb://publish', 'https://www.facebook.com/')" class="social-btn facebook">Facebook发布</a>
+        
+        <!-- Instagram发布 -->
+        <a href="instagram://camera" onclick="return openApp('instagram://camera', 'https://www.instagram.com/')" class="social-btn instagram">Instagram发布</a>
+        
+        <p class="instructions">点击按钮将直接跳转到各APP的发布界面<br>请确保已安装对应应用</p>
+    </div>
+
+    <script>
+        // 智能跳转函数：尝试打开APP，失败则跳转网页
+        function openApp(appUrl, webUrl) {
+            // 记录点击时间
+            const clickTime = new Date().getTime();
+            
+            // 尝试打开APP
+            window.location = appUrl;
+            
+            // 设置超时检测（1秒后检查）
+            setTimeout(function() {
+                // 如果现在时间与点击时间差小于1500ms，说明APP没打开
+                if (new Date().getTime() - clickTime < 1500) {
+                    window.location = webUrl;  // 跳转网页版
+                }
+            }, 1000);
+            
+            return false; // 阻止默认链接行为
+        }
+    </script>
+</body>
+</html>
