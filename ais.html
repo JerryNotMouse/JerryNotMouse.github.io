@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社交媒体发布中心</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .social-section {
+            padding: 25px;
+        }
+        
+        h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px 20px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+        }
+        
+        .douyin { border-color: #FE2C55; }
+        .xiaohongshu { border-color: #FF2442; }
+        .facebook { border-color: #1877F2; }
+        .instagram { border-color: #E4405F; }
+        .wechat { border-color: #07C160; }
+        .weibo { border-color: #E6162D; }
+        
+        .instructions {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+        
+        .advanced-options {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .content-form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .upload-btn {
+            background: #f0f0f0;
+            border: 1px dashed #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        
+        .upload-btn:hover {
+            background: #e8e8e8;
+        }
+        
+        .upload-btn input {
+            display: none;
+        }
+        
+        .action-btns {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+        }
+        
+        .btn-outline {
+            background: white;
+            color: #4b6cb7;
+            border: 1px solid #4b6cb7;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* 简单的模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
+        .platform-selection {
+            margin: 15px 0;
+        }
+
+        .platform-checkbox {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>社交媒体发布中心</h1>
+            <p class="description">点击下方按钮快速发布内容</p>
+        </header>
+        
+        <div class="social-section">
+            <h2>选择发布平台</h2>
+            
+            <!-- 抖音发布 -->
+            <a href="javascript:void(0)" onclick="launchApp('douyin')" class="social-btn douyin">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0ZFMkM1NSIgZD0iTTE2LjMzIDRIMTguMXYxNS41N0gxNi4zM1Y0ek01Ljc0IDRoMy41M3YxNS41N0g1Ljc0VjR6Ii8+PC9zdmc+" class="social-icon">
+                <span>抖音发布</span>
+            </a>
+            
+            <!-- 小红书发布 -->
+            <a href="https://creator.xiaohongshu.com/publish/publish?source=official" onclick="launchApp('xiaohongshu')" class="social-btn xiaohongshu">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0ZGMjQ0MiIgZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMEMyMiA2LjQ4IDE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6Ii8+PC9zdmc+" class="social-icon">
+                <span>小红书发布</span>
+            </a>
+            
+            <!-- Facebook发布 -->
+            <a href="javascript:void(0)" onclick="launchApp('facebook')" class="social-btn facebook">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzE4NzdGMiIgZD0iTTIyIDEyYzAtNS41Mi00LjQ4LTEwLTEwLTEwUzIgNi40OCAyIDEyYzAgNC44NCAzLjQ0IDguODcgOC4xIDkuOFYxNUg4di0zaDIuMVYxMi4xYzAtMi4xIDEuNjctMy45IDMuOC0zLjloMS44djIuN2gtMS4xYy0uNTUgMC0xIC40NS0xIDFWMjFoLTMuOXYtNi4yaC0zVjE1aDN6Ii8+PC9zdmc+" class="social-icon">
+                <span>Facebook发布</span>
+            </a>
+            
+            <!-- Instagram发布 -->
+            <a href="javascript:void(0)" onclick="launchApp('instagram')" class="social-btn instagram">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0U0NDA1RiIgZD0iTTEyIDJjMi43NiAwIDMuMDkuMSA0LjE4LjE0IDIuNjMuMjQgMy44NCAxLjQ2IDQuMDggNC4wOC4wMyAxLjA5LjE0IDEuNDIuMTQgNC4xOCAwIDIuNzYtLjExIDMuMDktLjE0IDQuMTgtLjI0IDIuNjYtMS40NiAzLjg0LTQuMDggNC4wOC0xLjA5LjAzLTEuNDIuMTQtNC4xOC4xNC0yLjc2IDAtMy4wOS0uMTEtNC4xOC0uMTQtMi42Ni0uMjQtMy44NC0xLjQ2LTQuMDgtNC4wOC0uMDMtMS4wOS0uMTQtMS40Mi0uMTQtNC4xOCAwLTIuNzYuMTEtMy4wOS4xNC00LjE4LjI0LTIuNjYgMS40Ni0zLjg0IDQuMDgtNC4wOCAxLjA5LS4wMyAxLjQyLS4xNCA0LjE4LS4xNHptMCAyYy0yLjc0IDAtMy4wOS4xLTQuMTguMTQtMi4wMi4xOS0yLjc1LjkxLTIuOTQgMi45NC0uMDQgMS4wOS0uMTQgMS40NC0uMTQgNC4xOCAwIDIuNzQuMSAzLjA5LjE0IDQuMTguMTkgMi4wMi45MSAyLjc1IDIuOTQgMi45NCAxLjA5LjA0IDEuNDQuMTQgNC4xOC4xNCAyLjc0IDAgMy4wOS0uMSA0LjE4LS4xNCAyLjAyLS4xOSAyLjc1LS45MSAyLjk0LTIuOTQuMDQtMS4wOS4xNC0xLjQ0LjE0LTQuMTggMC0yLjc0LS4xLTMuMDktLjE0LTQuMTgtLjE5LTIuMDItLjkxLTIuNzUtMi45NC0yLjk0LTEuMDktLjA0LTEuNDQtLjE0LTQuMTgtLjE0ek0xMiA3LjVhNC41IDQuNSAwIDExMCA5IDQuNSA0LjUgMCAwMTAtOXptMCAyYTcuNSA3LjUgMCAxMDAgMTUgNy41IDcuNSAwIDAwMC0xNXptNS41LTEwLjVhMS43NSAxLjc1IDAgMTEwIDMuNSAxLjc1IDEuNzUgMCAwMTAtMy41eiIvPjwvc3ZnPg==" class="social-icon">
+                <span>Instagram发布</span>
+            </a>
+            
+            <!-- 新增微信朋友圈发布 -->
+            <a href="javascript:void(0)" onclick="launchApp('wechat')" class="social-btn wechat">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzA3QzE2MCIgZD0iTTE2LjY4IDEwLjU1QzE2LjY4IDcuOTIgMTMuNyA1LjggMTAgNS44Yy0zLjcgMC02LjY4IDIuMTItNi42OCA0Ljc1IDAgMS40MS44NiAyLjY5IDIuMjYgMy41OGwuNTcgMy4wN2MuMDQuMjMuMyAzLjQuNzYgMy40LjI5IDAgLjUtLjE5LjYxLS40M2wuMjQtLjYzYy4yNi0uNjQgNC4yNS0yLjQ1IDQuMjUtMi40NSAxLjM0LjE3IDIuNjYuMTYgMy45OSAwYzIuNzQtLjMzIDQuNjgtMi4xOSA0LjY4LTQuMzR6TTEzLjE4IDguODRjLjQxIDAgLjc0LjMzLjc0Ljc0cy0uMzMuNzQtLjc0Ljc0LS43NC0uMzMtLjc0LS43NC4zMy0uNzQuNzQtLjc0ek02LjgyIDguODRjLjQxIDAgLjc0LjMzLjc0Ljc0cy0uMzMuNzQtLjc0Ljc0LS43NC0uMzMtLjc0LS43NC4zMy0uNzQuNzQtLjc0eiIvPjwvc3ZnPg==" class="social-icon">
+                <span>微信朋友圈</span>
+            </a>
+            
+            <!-- 新增微博发布 -->
+            <a href="javascript:void(0)" onclick="launchApp('weibo')" class="social-btn weibo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0U2MTYyRCIgZD0iTTEwLjA5IDE1LjU5YzQuOTcgMCA5LTIuMjMgOS00Ljk3YTIuMjYgMi4yNiAwIDAwLS4wNy0uNTVDMjAuMjYgOC4zIDE3LjI0IDcgMTQuNCAxMA0gICAgYy0yLjg0IDMtNy41NSAxLTcuNTUgNC42MiAwIC43NC42IDEuNDMgMS42MyAyLjAyYS43NS43NSAwIDAxLS4wOC4wOGM0Ljk3IDAgOS4wNy0yLjI0IDkuMDctNC45N3MtNC4xLTQuOTctOS4wNy00Ljk3LTkuMDcgMi4yMy05LjA3IDQuOTdjMCAyLjc0IDQuMSA0Ljk3IDkuMDcgNC45N3oiLz48L3N2Zz4=" class="social-icon">
+                <span>微博发布</span>
+            </a>
+
+            <!-- 一键多发按钮 -->
+            <a href="javascript:void(0)" onclick="openMultiPostModal()" class="social-btn" style="background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%); color: white; border-left: none; justify-content: center;">
+                <span>一键多平台发布</span>
+            </a>
+            
+            <p class="instructions">点击按钮将直接跳转到各APP的发布界面<br>请确保已安装对应应用</p>
+        </div>
+        
+        <footer>
+            <p>© 2023 社交媒体发布中心</p>
+        </footer>
+    </div>
+
+    <!-- 多平台发布模态框 -->
+    <div id="multiPostModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>多平台发布</h2>
+            
+            <div class="content-form">
+                <div class="form-group">
+                    <label for="postTitle">标题（可选）</label>
+                    <input type="text" id="postTitle" placeholder="输入帖子标题">
+                </div>
+                
+                <div class="form-group">
+                    <label for="postContent">内容</label>
+                    <textarea id="postContent" placeholder="输入要发布的内容..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>选择平台</label>
+                    <div class="platform-selection">
+                        <input type="checkbox" id="douyinCheck" class="platform-checkbox" value="douyin">
+                        <label for="douyinCheck">抖音</label>
+                    </div>
+                    <div class="platform-selection">
+                        <input type="checkbox" id="xiaohongshuCheck" class="platform-checkbox" value="xiaohongshu">
+                        <label for="xiaohongshuCheck">小红书</label>
+                    </div>
+                    <div class="platform-selection">
+                        <input type="checkbox" id="wechatCheck" class="platform-checkbox" value="wechat">
+                        <label for="wechatCheck">微信朋友圈</label>
+                    </div>
+                    <div class="platform-selection">
+                        <input type="checkbox" id="weiboCheck" class="platform-checkbox" value="weibo">
+                        <label for="weiboCheck">微博</label>
+                    </div>
+                    <div class="platform-selection">
+                        <input type="checkbox" id="facebookCheck" class="platform-checkbox" value="facebook">
+                        <label for="facebookCheck">Facebook</label>
+                    </div>
+                    <div class="platform-selection">
+                        <input type="checkbox" id="instagramCheck" class="platform-checkbox" value="instagram">
+                        <label for="instagramCheck">Instagram</label>
+                    </div>
+                </div>
+                
+                <div class="action-btns">
+                    <button class="btn btn-outline" onclick="closeModal()">取消</button>
+                    <button class="btn btn-primary" onclick="multiPost()">发布</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 平台配置
+        const platforms = {
+            douyin: {
+                appUrl: "snssdk1233://capture",
+                webUrl: "https://www.douyin.com/",
+                deepLink: "snssdk1233://feed?refer=web&gd_label=click_wap_download_app&type=video"
+            },
+            xiaohongshu: {
+                appUrl: "xiaohongshu://publish",
+                webUrl: "https://www.xiaohongshu.com/",
+                deepLink: "xiaohongshu://camera"
+            },
+            facebook: {
+                appUrl: "fb://composer",
+                webUrl: "https://www.facebook.com/",
+                deepLink: "fb://publish"
+            },
+            instagram: {
+                appUrl: "instagram://camera",
+                webUrl: "https://www.instagram.com/",
+                deepLink: "instagram://library?AssetPath=Camera"
+            },
+            wechat: {
+                appUrl: "weixin://dl/moments",
+                webUrl: "https://weixin.qq.com/",
+                deepLink: "weixin://dl/timeline/publish"
+            },
+            weibo: {
+                appUrl: "sinaweibo://sendweibo",
+                webUrl: "https://weibo.com/",
+                deepLink: "sinaweibo://compose"
+            }
+        };
+
+        // 智能跳转函数：尝试打开APP，失败则跳转网页
+        function launchApp(platform) {
+            const platformConfig = platforms[platform];
+            if (!platformConfig) return false;
+            
+            // 记录点击时间
+            const clickTime = new Date().getTime();
+            
+            // 尝试多种方式打开APP
+            tryOpenApp(platformConfig.appUrl);
+            
+            // 短暂延迟后尝试深层链接
+            setTimeout(() => {
+                tryOpenApp(platformConfig.deepLink);
+            }, 300);
+            
+            // 设置超时检测（1.5秒后检查）
+            setTimeout(function() {
+                // 如果现在时间与点击时间差小于1800ms，说明APP没打开
+                if (new Date().getTime() - clickTime < 1800) {
+                    window.location = platformConfig.webUrl;  // 跳转网页版
+                }
+            }, 1500);
+            
+            return false; // 阻止默认链接行为
+        }
+        
+        // 尝试打开APP的方法
+        function tryOpenApp(url) {
+            // 创建一个不可见的iframe
+            let iframe = document.createElement("iframe");
+            iframe.style.display = "none";
+            iframe.src = url;
+            document.body.appendChild(iframe);
+            
+            // 短暂延迟后移除iframe
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+                iframe = null;
+            }, 100);
+            
+            // 直接尝试打开
+            window.location.href = url;
+        }
+        
+        // 打开多平台发布模态框
+        function openMultiPostModal() {
+            document.getElementById("multiPostModal").style.display = "flex";
+        }
+        
+        // 关闭模态框
+        function closeModal() {
+            document.getElementById("multiPostModal").style.display = "none";
+        }
+        
+        // 多平台发布
+        function multiPost() {
+            // 获取选中的平台
+            const selectedPlatforms = [];
+            const checkboxes = document.querySelectorAll(".platform-checkbox:checked");
+            checkboxes.forEach(cb => {
+                selectedPlatforms.push(cb.value);
+            });
+            
+            // 获取内容
+            const title = document.getElementById("postTitle").value;
+            const content = document.getElementById("postContent").value;
+            
+            // 检查是否至少选择了一个平台
+            if (selectedPlatforms.length === 0) {
+                alert("请至少选择一个发布平台");
+                return;
+            }
+            
+            // 检查是否有内容
+            if (!content.trim()) {
+                alert("请输入要发布的内容");
+                return;
+            }
+            
+            // 保存到本地存储以便应用访问
+            localStorage.setItem("postTitle", title);
+            localStorage.setItem("postContent", content);
+            
+            // 逐个打开选中的平台
+            let delay = 0;
+            selectedPlatforms.forEach(platform => {
+                setTimeout(() => {
+                    launchApp(platform);
+                }, delay);
+                delay += 1000; // 每个平台相隔1秒打开
+            });
+            
+            // 关闭模态框
+            closeModal();
+        }
+        
+        // 当点击窗口外部时关闭模态框
+        window.onclick = function(event) {
+            const modal = document.getElementById("multiPostModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+        
+        // 监听返回到应用的事件
+        document.addEventListener("visibilitychange", function() {
+            if (!document.hidden) {
+                // 页面变为可见时检查是否有下一个平台需要打开
+                console.log("用户返回应用");
+                // 这里可以添加逻辑来继续打开下一个平台
+            }
+        });
+    </script>
+</body>
+</html>
